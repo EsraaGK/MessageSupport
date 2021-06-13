@@ -1,0 +1,164 @@
+
+[
+  {
+    "Category": "Recharge",
+    "categoryImageURL" : "Url",
+    "SubCategory": [
+      {
+        "Name": "Recharge by Scratch card",
+        "RichContent": "Pic.com",
+        "ScreenId": "Recharge",
+        "Desc": "HTML Content",
+        "FAQ": [
+          {
+            "Question": "Q1",
+            "Answer": "A1"
+          },
+          {
+            "Question": "Q2",
+            "Answer": "A2"
+          },
+          {
+            "Question": "Q3",
+            "Answer": "A3"
+          },
+          {
+            "Question": "Q4",
+            "Answer": "A4"
+          }
+        ]
+      },
+      {
+        "Name": "Recharge by Credit card",
+        "RichContent": "Pic.com",
+        "ScreenId": "Recharge",
+        "Desc": "HTML Content",
+        "FAQ": [
+          {
+            "Question": "Q1",
+            "Answer": "A1"
+          },
+          {
+            "Question": "Q2",
+            "Answer": "A2"
+          },
+          {
+            "Question": "Q3",
+            "Answer": "A3"
+          },
+          {
+            "Question": "Q4",
+            "Answer": "A4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Category": "PayBill",
+    "SubCategory": [
+      {
+        "Name": "Paybill by Scratch card",
+        "RichContent": "Pic.com",
+        "ScreenId": "PayBill",
+        "Desc": "HTML Content",
+        "FAQ": [
+          {
+            "Question": "Q1",
+            "Answer": "A1"
+          },
+          {
+            "Question": "Q2",
+            "Answer": "A2"
+          },
+          {
+            "Question": "Q3",
+            "Answer": "A3"
+          },
+          {
+            "Question": "Q4",
+            "Answer": "A4"
+          }
+        ]
+      },
+      {
+        "Name": "Paybill by Credit card",
+        "RichContent": "Pic.com",
+        "ScreenId": "PayBill",
+        "Desc": "HTML Content",
+        "FAQ": [
+          {
+            "Question": "Q1",
+            "Answer": "A1"
+          },
+          {
+            "Question": "Q2",
+            "Answer": "A2"
+          },
+          {
+            "Question": "Q3",
+            "Answer": "A3"
+          },
+          {
+            "Question": "Q4",
+            "Answer": "A4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Category": "MIBundle",
+    "SubCategory": [
+      {
+        "Name": "Renew MI Bundle",
+        "RichContent": "Pic.com",
+        "ScreenId": "MI",
+        "Desc": "HTML Content",
+        "FAQ": [
+          {
+            "Question": "Q1",
+            "Answer": "A1"
+          },
+          {
+            "Question": "Q2",
+            "Answer": "A2"
+          },
+          {
+            "Question": "Q3",
+            "Answer": "A3"
+          },
+          {
+            "Question": "Q4",
+            "Answer": "A4"
+          }
+        ]
+      },
+      {
+        "Name": "Subscribe MI Bundle",
+        "RichContent": "Pic.com",
+        "ScreenId": "MIBundle",
+        "Desc": "HTML Content",
+        "FAQ": [
+          {
+            "Question": "Q1",
+            "Answer": "A1"
+          },
+          {
+            "Question": "Q2",
+            "Answer": "A2"
+          },
+          {
+            "Question": "Q3",
+            "Answer": "A3"
+          },
+          {
+            "Question": "Q4",
+            "Answer": "A4"
+          }
+        ]
+      }
+    ]
+  }
+]
+

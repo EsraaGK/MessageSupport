@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // MARK: - IBOutlet
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var subCategoryLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
         
         presenter?.viewDidLoad()
     }
-    
+    // MARK: - Methods
     private func setUpMessageTextView() {
         messageTextView.delegate = self
         messageTextView.text = messageTextViewPlaceHolder
@@ -50,7 +51,7 @@ class ViewController: UIViewController {
         attachmentsCollectionView.register(ImageCollectionViewCell.nib,
                                            forCellWithReuseIdentifier: ImageCollectionViewCell.identifire)
     }
-    
+    // MARK: - IBAction
     @IBAction func chooseCategory(_ sender: UITapGestureRecognizer) {
         presenter?.getAllCategories()
     }
@@ -60,13 +61,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func attachImages(_ sender: UITapGestureRecognizer) {
-        ImagePickerHandler().selectPhotos(over: self){ [weak self] photos in
-            self?.photos.append(contentsOf: photos)
-        }
+        ImagePickerHandler(presentingViewController: self).selectPhotos()
+        
     }
     
 }
-
+// MARK: - Collection View DataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -87,36 +87,30 @@ extension ViewController: UICollectionViewDataSource {
 }
 // MARK: - Collection View Flow Layout Delegate
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-      ) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace - 40
         let widthPerItem = availableWidth / itemsPerRow
-
+        
         return CGSize(width: widthPerItem, height: widthPerItem)
-      }
-
-    func collectionView(
-       _ collectionView: UICollectionView,
-       layout collectionViewLayout: UICollectionViewLayout,
-       insetForSectionAt section: Int
-     ) -> UIEdgeInsets {
-       return sectionInsets
-     }
-     
-     func collectionView(
-       _ collectionView: UICollectionView,
-       layout collectionViewLayout: UICollectionViewLayout,
-       minimumLineSpacingForSectionAt section: Int
-     ) -> CGFloat {
-       return sectionInsets.left
-     }
+    }
+    
+    func collectionView( _ collectionView: UICollectionView,
+                         layout collectionViewLayout: UICollectionViewLayout,
+                         insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
 }
-
+// MARK: - Text View Delegate
 extension ViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -132,7 +126,7 @@ extension ViewController: UITextViewDelegate {
         }
     }
 }
-
+// MARK: - SupportMessageViewControllerProtocol
 extension ViewController: SupportMessageViewControllerProtocol {
     func assignSelected(_ category: Category) { // first time and when choose category
         categoryLabel.text = category.category
@@ -170,5 +164,11 @@ extension ViewController: SupportMessageViewControllerProtocol {
     private func didSelectSubCategory(with action: UIAlertAction) {
         subCategoryLabel.text = action.title
         presenter?.didSelectSubCategory(with: action.title)
+    }
+}
+// MARK: - Image Picker Delegate
+extension ViewController: ImagePickerDelegate {
+    func didFinishPicking(_ photos: [UIImage]) {
+        self.photos.append(contentsOf: photos)
     }
 }
